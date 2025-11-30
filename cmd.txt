@@ -185,4 +185,42 @@ Project Recipient List Add recipient email addresses (comma-separated)
 Content Type -  Default (text/plain) or text/html
 Triggers -  Select events (e.g., Failure, Success, etc.)
 
+
 9. Click ok and go to gmail for checking after building
+
+------------------------------------------------------------------
+
+development.yaml:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-api
+  template:
+    metadata:
+      labels:
+        app: flask-api
+    spec:
+      containers:
+      - name: flask-api
+        image: flask-api:1.0
+        ports:
+        - containerPort: 1234
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-api-service
+spec:
+  selector:
+    app: flask-api
+  ports:
+    - protocol: TCP
+      port: 1234
+      targetPort: 1234
+  type: NodePort
