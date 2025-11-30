@@ -6,7 +6,7 @@
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>FoodSystem Maven Webapp</name>
-  <url>localhost:8080/FoodSystem</url>
+  <url>localhost:8090/FoodSystem</url>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -34,7 +34,7 @@
 		  <artifactId>tomcat7-maven-plugin</artifactId>
 		  <version>2.2</version>
 		  <configuration>
-		  	<url>http://localhost:8080/manager/text</url>
+		  	<url>http://localhost:8090/manager/text</url>
 		  	<server>TomcatServer</server>
 		  	<path>/foodsystem</path>
 		  </configuration>
